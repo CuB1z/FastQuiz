@@ -1,0 +1,10 @@
+{
+  "short_name": "FastQuiz",
+  "name": "FastQuiz: Load and play quizzes quickly",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#000000",
+  "description": "Fast Quiz allows you to load and play quizzes quickly."
+}
