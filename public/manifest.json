@@ -6,5 +6,34 @@
   "start_url": "/",
   "scope": "/",
   "theme_color": "#000000",
-  "description": "Fast Quiz allows you to load and play quizzes quickly."
+  "description": "Fast Quiz allows you to load and play quizzes quickly.",
+  "id": "/",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-narrow.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/screenshot-wide.png",
+      "type": "image/png",
+      "sizes": "725x540",
+      "form_factor": "wide"
+    }
+  ]
 }

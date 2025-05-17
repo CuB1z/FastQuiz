@@ -1,3 +1,5 @@
+import nextPwa from 'next-pwa'
+
 let userConfig = undefined
 try {
   userConfig = await import('./v0-user-next.config')
@@ -6,7 +8,7 @@ try {
 }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -23,7 +25,7 @@ const nextConfig = {
   },
 }
 
-mergeConfig(nextConfig, userConfig)
+mergeConfig(baseConfig, userConfig)
 
 function mergeConfig(nextConfig, userConfig) {
   if (!userConfig) {
@@ -45,4 +47,12 @@ function mergeConfig(nextConfig, userConfig) {
   }
 }
 
-export default nextConfig
+// Configura next-pwa
+const withPWA = nextPwa({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+})
+
+export default withPWA(baseConfig)
