@@ -84,6 +84,7 @@ export default function QuizApp() {
   const [isDragging, setIsDragging] = useState(false)
   const [score, setScore] = useState(0)
   const [direction, setDirection] = useState(0) // -1 for left, 1 for right
+  const [hasLastQuiz, setHasLastQuiz] = useState(false)
 
   // Input mode states
   const [inputMode, setInputMode] = useState<"file" | "text">("file")
@@ -162,6 +163,12 @@ export default function QuizApp() {
       if (timer) clearTimeout(timer)
     }
   }, [timerEnabled, timeLeft, isAnswerSubmitted, handleSubmitAnswer, toast])
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasLastQuiz(!!localStorage.getItem("lastQuiz"))
+    }
+  }, [isLoading])
 
   // Reset timer when moving to next question
   useEffect(() => {
@@ -679,7 +686,7 @@ export default function QuizApp() {
           </TabsContent>
         </Tabs>
 
-        {localStorage.getItem("lastQuiz") && (
+        {hasLastQuiz && (
           <div className="mt-6 flex justify-center">
             <Button
               variant="outline"
