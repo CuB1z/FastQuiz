@@ -1,6 +1,8 @@
 import type { ReactNode } from "react"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SettingsProvider } from "@/components/settings-provider"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function RootLayout({
   children,
@@ -32,7 +34,10 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <SettingsProvider>
+            {children}
+            <Toaster />
+          </SettingsProvider>
         </ThemeProvider>
       </body>
     </html>
